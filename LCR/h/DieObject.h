@@ -13,11 +13,21 @@
 class DieObject : public TickableObject {
 private:
     Cube3D model;
+    int facing;
+    double direction;
+    double speed;
+
 public:
+    DieObject();
+    
     // Called every frame
     void tick();
 
-    
+    bool finishedRoll();
+
+    int getRoll();
+
+
 
 };
 

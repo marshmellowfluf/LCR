@@ -6,17 +6,20 @@
 #include "h/SceneManager.h"
 #include "h/Scene.h"
 #include "assets/gfx.h"
-#include "GameManager.cpp"
+#include "Player.cpp"
 
 using namespace std;
 
 class TableScene : public Scene {
 private:
     int delay;
+    vector<Player> players;
+
 public:
-    TableScene() {
+    TableScene(vector<Player>& p) {
         state = 0;
         delay = 0;
+        players = p;
     }
 
     // Called when the scene starts
@@ -24,10 +27,10 @@ public:
         
         StringScreen* s = SceneManager::getScreen();
         s->clearscreen();
-        for (int i = 0; i < table.size(); i++) {
-            s->drawrect(SEAT_POSITIONS[i][0], SEAT_POSITIONS[i][1], SEAT_POSITIONS[i][2], SEAT_POSITIONS[i][3], COLORS[table[i].getColor()]);
-            s->drawtext(CHIPS_POSITIONS[i][0], CHIPS_POSITIONS[i][1], "CHIPS: " + to_string(table[i].getChips()) + "  ");
-            s->drawtext(NAMES_POSITIONS[i][0], NAMES_POSITIONS[i][1], table[i].getName());
+        for (int i = 0; i < players.size(); i++) {
+            s->drawrect(SEAT_POSITIONS[i][0], SEAT_POSITIONS[i][1], SEAT_POSITIONS[i][2], SEAT_POSITIONS[i][3], COLORS[players.at(i).getColor()]);
+            s->drawtext(CHIPS_POSITIONS[i][0], CHIPS_POSITIONS[i][1], "CHIPS: " + to_string(players.at(i).getChips()) + "  ");
+            s->drawtext(NAMES_POSITIONS[i][0], NAMES_POSITIONS[i][1], players.at(i).getName());
         }
         s->savetobuffer();
         if (state == 0) {

@@ -43,7 +43,6 @@ public:
             delay--;
             if (delay == 0) {
                 GameManager::startGame(name, ante, numplayers);
-                SceneManager::transition(new TableScene());
                 state = 5;
             }
         }

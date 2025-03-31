@@ -38,6 +38,12 @@
     <ClCompile Include="TableScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="RollScene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DieObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="h\BitImage.h">

@@ -23,7 +23,7 @@ private:
 public:
     Transform3D transform;
 
-    Cube3D(int edge);
+    Cube3D(int edge = 10);
 
     // sets face face to be drawn with character c
     void setFace(int face, char c);

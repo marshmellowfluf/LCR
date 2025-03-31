@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DieObject.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="h\Scenes.cpp" />
     <ClCompile Include="h\TitleDieObject.cpp" />
@@ -135,6 +136,7 @@
     <ClCompile Include="impl\StringScreenImpl.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="RollScene.cpp" />
     <ClCompile Include="TableScene.cpp" />
   </ItemGroup>
   <ItemGroup>
