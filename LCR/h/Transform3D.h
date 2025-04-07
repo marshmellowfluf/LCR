@@ -66,6 +66,7 @@ public:
         return this;
     };
 
+
     // Rotate using axis-angle notation
     // Does not update rotations. It should, but for this program it would just add unnecessary calculations.
     Transform3D* rotateAA(double angle, double x, double y, double z) {
@@ -75,6 +76,23 @@ public:
         rot_matrix[2] = y * sin(angle / 2);
         rot_matrix[3] = z * sin(angle / 2);
 
+        normalizeRotationMatrix();
+
+        return this;
+    };
+
+    Transform3D* rotateAARelative(double angle, double x, double y, double z) {
+        double temp_matrix[4];
+        temp_matrix[0] = cos(angle / 2);
+        temp_matrix[1] = x * sin(angle / 2);
+        temp_matrix[2] = y * sin(angle / 2);
+        temp_matrix[3] = z * sin(angle / 2);
+        double* matrix2 = quaternion_multiply(rot_matrix[0], rot_matrix[1], rot_matrix[2], rot_matrix[3], temp_matrix[0], temp_matrix[1], temp_matrix[2], temp_matrix[3]);
+        rot_matrix[0] = matrix2[0];
+        rot_matrix[1] = matrix2[1];
+        rot_matrix[2] = matrix2[2];
+        rot_matrix[3] = matrix2[3];
+        delete matrix2;
         normalizeRotationMatrix();
 
         return this;

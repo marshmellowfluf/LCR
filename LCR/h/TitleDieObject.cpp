@@ -20,8 +20,8 @@ public:
 		model->setFace(0, RED_CHAR);
 		model->setFace(1, BLUE_CHAR);
 		model->setFace(2, YELLOW_CHAR);
-		int target_x = (scr_width / 2) *((double)rand() / (double)RAND_MAX) + scr_width / 4;
-		int target_y = (scr_height / 2) *((double)rand() / (double)RAND_MAX) + scr_height / 4;
+		int target_x = (scr_width / 2); // *((double)rand() / (double)RAND_MAX) + scr_width / 4;
+		int target_y = (scr_height / 4); // *((double)rand() / (double)RAND_MAX) + scr_height / 4;
 		double dir = 2 * M_PI * (double)rand() / (double)RAND_MAX;
 		rot_axis.first = cos(dir + M_PI / 2);
 		rot_axis.second = sin(dir + M_PI / 2);
